@@ -4,6 +4,6 @@ const express = require('express');
 // INDEX CONTROLLERS
 module.exports = {
     displayHomePage: (req, res) => {
-        res.render('home');
+        res.render('home', { title: 'Home - FileUpload->Multer' });
     }
 }

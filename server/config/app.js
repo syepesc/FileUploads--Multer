@@ -8,6 +8,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
+const multer = require('multer');
 require('dotenv').config();
 
 // Initialize app with express
@@ -68,11 +69,10 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/', require('../routes/index'));
-app.use('/users', require('../routes/users'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  //next(createError(404));
 });
 
 

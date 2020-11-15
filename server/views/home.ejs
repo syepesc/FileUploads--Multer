@@ -1,1 +1,23 @@
-Home
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body text-center">
+            <h1><i class="fas fa-upload fa-2x"></i></h1>
+            <p>Image Upload</p>
+            <%= typeof msg != 'undefined' ? msg : '' %>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+              <div class="file-field input-field">
+                <div class="btn btn-primary">
+                  <span>File</span>
+                  <input name="myImage" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+              <button type="submit" class="btn">Submit</button>
+            </form>
+            <br>
+            <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">        
+        </div>
+    </div>
+</div>
