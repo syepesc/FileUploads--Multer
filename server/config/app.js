@@ -3,15 +3,11 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 const express = require('express');
 let path = require('path');
-const mongoose = require('mongoose');
+const expressLayouts = require('express-ejs-layouts');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
-const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
-const methodOverride = require('method-override');
-
 require('dotenv').config();
 
 // Initialize app with express
@@ -34,10 +30,8 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
-// Passport config
-//require('./config/passport')(passport);
-
 // EJS Config
+app.use(expressLayouts);
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
@@ -60,10 +54,6 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-
-// Passport middleware - must be AFTER express session
-//app.use(passport.initialize());
-//app.use(passport.session());
 
 // Connect flash
 app.use(flash());

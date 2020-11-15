@@ -5,7 +5,7 @@
  */
 
 var app = require('./server/config/app');
-var debug = require('debug')('ost-mongodb-gridfs-multer:server');
+var debug = require('debug')('File-Uploads--MongoDB--Multer:server');
 var http = require('http');
 
 /**
